@@ -1,12 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
 import Button from '@mui/material/Button'
-import { ButtonGroup } from '@mui/material';
-import { AppBar } from '@mui/material';
-import {HomeMaxOutlined, DeleteForeverOutlined} from '@mui/icons-material';
+import { ButtonGroup, IconButton } from '@mui/material';
+import {HomeMaxOutlined, DeleteForeverOutlined, Menu} from '@mui/icons-material';
 
 import { ThemeProvider, createTheme } from '@mui/material';
-import { green } from '@mui/material/colors';
+import 'fontsource-roboto';
+
+import { Typography } from '@mui/material';
+import { Container } from '@mui/material';
+
+import { Paper } from '@mui/material';
+import { Grid } from '@mui/material';
+
+import { AppBar } from '@mui/material';
+import { Toolbar } from '@mui/material';
 
 // Palette created using https://material.io/inline-tools/color/
 const theme = createTheme({
@@ -18,34 +26,71 @@ const theme = createTheme({
       main: '#c94925',
     },
   },
+  typography: {
+    h2: {
+      fontSize: 36,
+    }
+  }
 });
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <div className="App">
-        <header className="App-header">
-          <AppBar color='secondary'>Hi</AppBar>
-          <ButtonGroup>
-            <Button
-              startIcon={<HomeMaxOutlined></HomeMaxOutlined>}
-              size="large"
-              variant="contained" 
-              color="primary">
-              Save
-            </Button>
-            <Button
-              startIcon={<DeleteForeverOutlined />}
-              size="large"
-              variant="contained" 
-              color="secondary">
-              Delete
-            </Button>
-          </ButtonGroup>
-          <img src={logo} className="App-logo" alt="logo" />
+      <Container maxWidth='lg'>
 
-        </header>
-      </div>
+        <div className="App">
+          <header className="App-header">
+            <AppBar>
+              <Toolbar>
+                <IconButton>
+                  <Menu></Menu>
+                </IconButton>
+                <Typography variant='h6'>
+                  MUI Theming
+                </Typography>
+                <Button>
+                  Login
+                </Button>
+              </Toolbar>
+            </AppBar>
+            <Typography variant='h2' component="div">
+              Welcome to MUI
+            </Typography>
+            <Typography variant='subtitle1'>
+              Learn how to use MUI
+            </Typography>
+            <Grid container spacing={4} justifyContent="center">
+              <Grid item>
+                <Paper style={{height: 75, width: 50,}}></Paper>
+              </Grid>
+              <Grid item>
+                <Paper style={{height: 75, width: 50,}}></Paper>
+              </Grid>
+              <Grid item>
+                <Paper style={{height: 75, width: 50,}}></Paper>
+              </Grid>
+            </Grid>
+            <ButtonGroup>
+              <Button
+                startIcon={<HomeMaxOutlined></HomeMaxOutlined>}
+                size="large"
+                variant="contained" 
+                color="primary">
+                Save
+              </Button>
+              <Button
+                startIcon={<DeleteForeverOutlined />}
+                size="large"
+                variant="contained" 
+                color="secondary">
+                Delete
+              </Button>
+            </ButtonGroup>
+            <img src={logo} className="App-logo" alt="logo" />
+
+          </header>
+        </div>
+      </Container>
     </ThemeProvider>
   );
 }
