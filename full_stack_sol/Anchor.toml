@@ -1,0 +1,14 @@
+[features]
+seeds = false
+[programs.localnet]
+full_stack_sol = "8yRtSEztGG8SGx9GJ7s76Fym6fu9LAUDTkokzimJFVSx"
+
+[registry]
+url = "https://anchor.projectserum.com"
+
+[provider]
+cluster = "localnet"
+wallet = "/home/jack/.config/solana/id.json"
+
+[scripts]
+test = "yarn run mocha -t 1000000 tests/"
